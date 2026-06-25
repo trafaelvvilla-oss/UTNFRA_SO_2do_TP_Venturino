@@ -1,0 +1,26 @@
+- name: Crear directorio alumno
+  file:
+    path: /tmp/2do_parcial/alumno
+    state: directory
+    mode: '0755'
+
+- name: Crear directorio equipo
+  file:
+    path: /tmp/2do_parcial/equipo
+    state: directory
+    mode: '0755'
+
+- name: Generar archivo alumno
+  template:
+    src: datos_alumno.txt.j2
+    dest: /tmp/2do_parcial/alumno/datos_alumno.txt
+
+- name: Generar archivo equipo
+  template:
+    src: datos_equipo.txt.j2
+    dest: /tmp/2do_parcial/equipo/datos_equipo.txt
+- name: Configurar sudo sin password para 2PSupervisores
+  copy:
+    dest: /etc/sudoers.d/2PSupervisores
+    content: "%2PSupervisores ALL=(ALL) NOPASSWD: ALL"
+    mode: '0440'
