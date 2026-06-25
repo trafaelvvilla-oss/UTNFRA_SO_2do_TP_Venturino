@@ -418,3 +418,8 @@ cp -r ~/RTA_Examen_* .
 history -a
 cp ~/.bash_history .
 history -a
+cp ~/.bash_history .
+git add .
+git commit -m "Entrega TP2"
+git push origin main
+history -a
